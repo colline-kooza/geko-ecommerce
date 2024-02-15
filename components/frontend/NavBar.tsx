@@ -27,7 +27,7 @@ export default function NavBar() {
           <input
             type='email'
             placeholder='Search...'
-            className='w-full outline-none bg-transparent text-gray-600 font-semibold text-sm'
+            className='w-full outline-none placeholder:text-zinc-950 bg-transparent text-zinc-950 font-semibold text-sm'
           />
         </div>
 
@@ -49,16 +49,16 @@ export default function NavBar() {
       </div>
 
       {/* downer navbar */}
-      <div className='py-4 hidden mt-3 md:flex justify-center items-center'>
+      <div className='py-4 mt-3 flex justify-center m-auto items-center'>
         <ul
           id='collapseMenu'
-          className='lg:flex max-lg:hidden max-lg:w-full lg:space-x-10 max-lg:space-y-3 lg:absolute lg:left-1/2 lg:-translate-x-1/2'
+          className='lg:flex max-lg:hidden justify-center item-center lg:space-x-10 lg:absolute'
         >
           {links.map((link, index) => (
             <li key={index} className='max-lg:border-b max-lg:py-2'>
               <Link
                 href={link.slug}
-                className='hover:text-[#007bff] capitalize text-gray-600 font-bold text-[15px] block'
+                className='hover:text-[#007bff] capitalize text-zinc-950 font-bold text-[15px] block'
               >
                 {link.title}
               </Link>
