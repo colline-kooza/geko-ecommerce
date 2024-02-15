@@ -1,5 +1,10 @@
 import Image from "next/image";
+import ContentBlock from "@/components/frontend/ContentBlock";
 
 export default function Home() {
-  return <main className='flex min-h-screen flex-col'></main>;
+  return (
+    <main className='flex w-full min-h-screen bg-black  flex-col'>
+      <ContentBlock />
+    </main>
+  );
 }

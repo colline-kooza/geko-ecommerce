@@ -1,6 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import Button from "./Button";
 import { Facebook, Linkedin, MailSearch, Twitter } from "lucide-react";
+
+const companyBio: string =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean gravida, mi eu pulvinar cursus, sem elit interdum mauris";
 
 const footerPages = [
   {
@@ -68,9 +72,6 @@ const footerPages = [
   },
 ];
 
-const companyBio: string =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean gravida, mi eu pulvinar cursus, sem elit interdum mauris";
-
 export default function Footer() {
   return (
     <>
@@ -90,12 +91,7 @@ export default function Footer() {
               placeholder='Enter your email'
               className='w-full outline-none bg-transparent text-sm pl-2'
             />
-            <button
-              type='button'
-              className='bg-blue-600 hover:bg-blue-700 transition-all text-white text-sm rounded-full px-5 py-2 ml-4'
-            >
-              Submit
-            </button>
+            <Button title='Submit' />
           </div>
         </div>
 
@@ -149,17 +145,17 @@ export default function Footer() {
             </div>
             <ul className='flex gap-2'>
               <li>
-                <Link href='javascript:void(0)'>
+                <Link href='/'>
                   <Facebook className='inline text-white w-6 h-6' />
                 </Link>
               </li>
               <li>
-                <Link href='javascript:void(0)'>
+                <Link href='/'>
                   <Linkedin className='inline text-white w-6 h-6' />
                 </Link>
               </li>
               <li>
-                <Link href='javascript:void(0)'>
+                <Link href='/'>
                   <Twitter className='inline text-white w-6 h-6' />
                 </Link>
               </li>
