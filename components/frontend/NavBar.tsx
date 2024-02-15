@@ -22,14 +22,18 @@ export default function NavBar() {
           <h2 className='text-2xl font-bold uppercase'>{companyName}</h2>
         </Link>
 
-        <div className='bg-gray-100 border border-transparent focus-within:border-blue-500 flex rounded-full h-9 items-center px-4 w-full lg:w-2/4 mt-3 md:mx-auto max-lg:mt-6'>
-          <Search className='mr-3 rotate-90' />
-          <input
-            type='email'
-            placeholder='Search...'
-            className='w-full outline-none placeholder:text-zinc-950 bg-transparent text-zinc-950 font-semibold text-sm'
-          />
-        </div>
+        <form action='/search' className='max-w-3xl w-full px-4'>
+          <div className='relative'>
+            <input
+              type='text'
+              className='w-full h-12 border py-3 px-6 rounded-full'
+              placeholder='Search...'
+            />
+            <button type='submit'>
+              <Search className='h-6 w-6 absolute top-2.5 right-3' />
+            </button>
+          </div>
+        </form>
 
         {/* signIn, favorites and the cart */}
         <div className='hidden lg:flex items-center gap-5'>
