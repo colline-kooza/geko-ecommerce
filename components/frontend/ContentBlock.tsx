@@ -57,7 +57,7 @@ export default function ContentBlock() {
           <span className='font-semibold text-[1.2rem]'>
             Have a question? Well, we’ve got some answers.
           </span>
-          <div className='max-w-xl'>
+          <div className='max-w-xl mt-4'>
             <Button title='Go to Help Center' />
           </div>
         </div>

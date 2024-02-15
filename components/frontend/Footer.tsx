@@ -76,7 +76,7 @@ export default function Footer() {
   return (
     <>
       {/* main footer */}
-      <div className='bg-white px-8 py-12 w-full md:max-w-6xl md:mx-auto font-[sans-serif]'>
+      <div className='bg-white px-8 py-12 w-full md:max-w-7xl md:mx-auto font-[sans-serif]'>
         {/* news-letter */}
         <div className='lg:max-w-[50%] mx-auto text-center pb-12'>
           <h3 className='text-3xl font-bold text-black'>Newsletter</h3>
@@ -138,7 +138,7 @@ export default function Footer() {
 
       {/* downer footer */}
       <div className='bg-blue-600 py-4 px-10 font-[sans-serif]'>
-        <div className='w-full md:max-w-6xl md:mx-auto'>
+        <div className='w-full md:max-w-7xl px-8 md:mx-auto'>
           <div className='flex items-start justify-between'>
             <div>
               <p className='text-sm text-white font-bold'>Follow us:</p>

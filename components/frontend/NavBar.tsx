@@ -14,9 +14,9 @@ const companyName = "Geko";
 
 export default function NavBar() {
   return (
-    <header className='border-b px-8 md:px-10 py-3'>
+    <header className='border-b py-3'>
       {/* upper navbar */}
-      <div className='w-full md:max-w-6xl md:mx-auto flex flex-col lg:flex-row item-start md:items-center md:justify-between'>
+      <div className='w-full md:max-w-7xl px-8 md:mx-auto flex flex-col lg:flex-row item-start md:items-center md:justify-between'>
         {/* logo and the search */}
         <Link href='/'>
           <h2 className='text-2xl font-bold uppercase'>{companyName}</h2>
