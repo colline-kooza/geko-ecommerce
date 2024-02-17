@@ -17,11 +17,9 @@ export default function page() {
         
         <div className='w-screen'>
         <div className="cardWrap mt-7 p-3 flex-col md:flex-row  w-full gap-2 h-2/3  flex">
-            <div className="leftCard p-1 md:p-5 border-[1.5px] border-1 border-black-10">
-              
+            <div className="leftCard  p-1 md:p-5 border-[1.5px] border-1 border-black-10">
                <CartItemsCard/>
             </div>
-            
             <div className="payments w-full  md:w-2/5 h-[300px] py-1 px-2 md:px-16">
                 <h1 className="">How you'll pay</h1>
                 <div className="payment-methods ">
