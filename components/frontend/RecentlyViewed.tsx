@@ -36,7 +36,7 @@ export default function RecentlyViewed() {
     <div className='bg-white'>
       <div className='flex flex-col gap-8 justify-center max-w-7xl mx-auto py-10 px-8 text-zinc-950'>
         <h3 className='font-bold'>Recently viewed & more</h3>
-        <div className='grid grid-cols-2 gap-3 lg:grid-cols-5'>
+        <div className='grid grid-cols-1 gap-3 lg:grid-cols-5'>
           {recentlyViewedData.map((item) => (
             <Link
               key={item.id}
