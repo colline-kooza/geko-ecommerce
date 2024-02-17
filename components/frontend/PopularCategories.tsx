@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const categories = [
+const featuredCategories = [
   { name: "Anniversary Gifts", imageSrc: "/categories/category2.jpg" },
   { name: "Birthday Gifts", imageSrc: "/categories/category3.jpg" },
   { name: "Wedding Gifts", imageSrc: "/categories/category1.jpg" },
@@ -20,9 +20,9 @@ export default function PopularCategories() {
           </h3>
         </div>
 
-        {/* categories */}
+        {/* Featured Categories */}
         <div className='grid grid-cols-2 col-span-2 gap-5 lg:grid-cols-5'>
-          {categories.map((category, index) => (
+          {featuredCategories.map((category, index) => (
             <div
               key={index}
               className='flex flex-col border border-zinc-950 rounded-xl'
