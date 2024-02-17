@@ -7,7 +7,7 @@ import { Edit } from 'lucide-react'
 export default function CartItemsCard() {
   return (
     <>
-    <div className="upper  flex flex-col md:flex-row  ">
+    <div className="upper flex flex-col md:flex-row  ">
                     <div className="left-upper flex-col md:flex-row w-full md:w-3/4 flex  ">
                         <div className="md:w-1/3 w-full ">
                         <Image src={'/images/cart.avif'} alt='' className='hover:bg-black w-full  bg-purple-300  rounded-lg' width={180} height={100}/>

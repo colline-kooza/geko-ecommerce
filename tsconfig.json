@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/cart-page/CartCard.jsx", "components/cart-page/CartItemsCard.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/cart-page/CartCard.jsx", "components/cart-page/CartItemsCard.jsx", "components/CheckOutComponents/checkoutpage2.tsx"],
   "exclude": ["node_modules"]
 }
