@@ -12,7 +12,7 @@ export default function page() {
         <p className="prom rounded-md bg-blue-200 p-3 flex gap-3 text-xs items-center"> <span className='text-3xl'> <HandshakeIcon /></span> Buy confidently with Etsy's Purchase Protection program for buyers, get a full refund in the rare case your item doesn't arrive, arrives damaged, or isn't as described. See eligibility</p>
         <div className="w-full flex mt-8">
             <div className="w-3/5 flex border-black justify-between border-1 p-3 h-[300px] rounded-md">
-              <div>
+              <div className='bg-green-400'>
                 <p>love suna</p>
                 <div className="flex gap-4">
                   <Image src={'/images/cart.avif'} alt='' className='hover:bg-black h-full bg-purple-300  rounded-lg' width={180} height={100}/>
