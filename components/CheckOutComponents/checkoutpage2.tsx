@@ -5,7 +5,7 @@ import Button from '@/components/CheckOutComponents/Button'
 import { CreditCard } from 'lucide-react';
 import { FaLock,FaRegQuestionCircle } from 'react-icons/fa';
 
-export default function checkoutPageTwo() {
+export default function CheckoutPageTwo() {
   // const [user, setUser] = useState<User | null>(null);
   const [showMenu,setShowMethod]=useState(false);
   const [showPaypalMenu,setshowPaypalMenu]=useState(false);
@@ -57,39 +57,37 @@ export default function checkoutPageTwo() {
    <FaLock className='absolute text-2xl right-2 top-3'/>
    </div>
   </div>
-  <div className="flex gap-10 w-full">
-  <div className="date grid w-1/2 grid-cols-2">
-  <select name="" id="" className="dark:focus:border-blue-500 focus:outline-blue-400  focus:ring-0 focus:border-blue-600 peer border-black-290 rounded-sm border-2 w-full py-2.5 px-3 border-black-300 dark:focus:border-blue-500">
-        <option value="">1</option>
-        <option value="">2</option>
-        <option value="">3</option>
-        <option value="">5</option>
-        <option value="">6</option>
-        <option value="">7</option>
-        <option value="">8</option>
-        <option value="">9</option>
-    </select>
-    <select name="" id="" className="dark:focus:border-blue-500 focus:outline-blue-400  focus:ring-0 focus:border-blue-600 peer border-black-290 rounded-sm border-2 w-full py-2.5 px-3 border-black-300 dark:focus:border-blue-500">
-        <option value="">2024</option>
-        <option value="">2023</option>
-        <option value="">2022</option>
-        <option value="">2021</option>
-        <option value="">2019</option>
-        <option value="">2018</option>
-        <option value="">2017</option>
-    </select>
-  </div>
-  <div className="security-code w-2/3 pl-20 ">
-    <h1 className='text-end'>Security code </h1>
-  <div className="relative flex  items-center justify-center">
-  <input type='' id='floating_email' name='name' className='dark:focus:border-blue-500 focus:outline-blue-400  focus:ring-0 focus:border-blue-600 peer border-black-290 rounded-sm border-2 w-2/5 py-2.5 px-3 border-black-300 dark:focus:border-blue-500' />
-  <FaLock className='absolute text-md left-30  top-5'/>
+  <div className="flex justify-between">
+          <div className="">
+            <h1>Expiration date </h1>
+            <select name="" id="" className='w-[130px] rounded-l-md border-2 py-2 border-black'>
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+            </select>
+            <select name="" id="" className=' w-[130px] bg-red-200 rounded-r-md border-2 py-2 border-black'>
+              <option value="">2024</option>
+              <option value="">2023</option>
+              <option value="">2022</option>
+              <option value="">2021</option>
+              <option value="">2020</option>
+            </select>
+          </div>
+          <div className="">
+            <h1>Security code </h1>
+            <div className="relative flex items-center">
+            <FaLock className='absolute text-md ml-16  top-4'/>
+            <input type='number' id='floating_email' name='name' className='dark:focus:border-blue-500 focus:outline-blue-400  focus:ring-0 focus:border-blue-600 peer px- border-black-290 rounded-sm border-2 w-2/5 py-2.5  border-black-300 dark:focus:border-blue-500' />
   <FaRegQuestionCircle className='text-md'/>
-  </div>
-  </div>
-  </div>
+            </div>
+
+          </div>
+        </div>
                   </div>
         </div>
+        
         <div className="paypal-check-out">
         <div className="paypal justify-between flex gap-2 items-center">
         <div onClick={TogglePaypalMethod} className="flex  gap-2">
