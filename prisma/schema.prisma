@@ -16,8 +16,10 @@ model Product {
   name           String
   images         String[]
   description    String   
-  price          String
-  categoryId     String   
+  shortDescription    String?   
+  currentPrice   String
+  intialPrice    Float?
+  categoryId     Float?   
   isPublished    Boolean
   isFeatured     Boolean
   slug           String @unique
