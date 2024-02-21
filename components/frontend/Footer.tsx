@@ -1,7 +1,9 @@
+"use client"
 import React from "react";
 import Link from "next/link";
 import Button from "./Button";
 import { Facebook, Linkedin, MailSearch, Twitter } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const companyBio: string =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean gravida, mi eu pulvinar cursus, sem elit interdum mauris";
@@ -73,6 +75,18 @@ const footerPages = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname()
+  if (
+    pathname === "/dashboard" ||
+    pathname === "/dashboard/category" ||
+    pathname === "/dashboard/category/create" ||
+    pathname === "/dashboard/product"
+  ) {
+    return null;
+  }
+  if (pathname.startsWith("/dashboard/category/update/")) {
+    return null;
+  }
   return (
     <>
       {/* main footer */}

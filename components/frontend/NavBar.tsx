@@ -1,6 +1,8 @@
+"use client"
 import React from "react";
 import Link from "next/link";
 import { Heart, Search, ShoppingCart } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const links = [
   { slug: "shop-deals", title: "shop deals" },
@@ -13,6 +15,13 @@ const links = [
 const companyName = "Geko";
 
 export default function NavBar() {
+  const pathname = usePathname()
+  if(pathname === "/dashboard" || pathname === "/dashboard/category" || pathname === "/dashboard/category/create" || pathname === "/dashboard/product" || pathname === "/dashboard/category/update"){
+    return null
+  }
+  if (pathname.startsWith("/dashboard/category/update/")) {
+    return null;
+  }
   return (
     <header className='border-b py-3'>
       {/* upper navbar */}
