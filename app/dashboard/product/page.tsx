@@ -1,8 +1,6 @@
 import Delete from "@/components/DashboardComponents/DeleteBtn";
 import Head from "@/components/DashboardComponents/Head";
-import { TextInputs } from "@/components/DashboardComponents/TextInputs";
 import getData from "@/utils/getData";
-import { ExternalLink, Trash2 } from "lucide";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -37,7 +35,7 @@ export default async function page() {
                         width={1080}
                         height={1080}
                         className='object-cover w-36 h-36 transition-all duration-300 group-hover:scale-125'
-                        src={product.image}
+                        src={product.images[0]}
                         alt=''
                       />
                     </div>
@@ -45,14 +43,14 @@ export default async function page() {
                       <div>
                         <h3 className='text-xs font-bold text-gray-900 sm:text-sm md:text-base'>
                           <p className='line-clamp-1'>
-                            {product.title}
+                            {product.name}
                             <span
                               className='absolute inset-0'
                               aria-hidden='true'
                             ></span>
                           </p>
                           <p className='line-clamp-1 text-sm font-medium'>
-                            {product.description}
+                            {product.shortDescription}
                             <span
                               className='absolute inset-0'
                               aria-hidden='true'
@@ -104,7 +102,7 @@ export default async function page() {
                       </div>
 
                       <div className='text-right flex gap-2 cursor-pointer absolute bottom-0 right-0'>
-                        <Delete id={product.id} resourceName='product' />
+                        <Delete id={product.id} resourceName='products' />
 
                         <Link
                           href={`/dashboard/product/update/${product.id}`}

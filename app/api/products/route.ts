@@ -65,7 +65,7 @@ export async function GET() {
       // },
     });
 
-    console.log("Products got back successfully", products);
+    // console.log("Products got back successfully", products);
     return NextResponse.json(products, {
       status: 200,
     });

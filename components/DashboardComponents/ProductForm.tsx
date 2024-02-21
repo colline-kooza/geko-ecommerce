@@ -46,7 +46,7 @@ export function ProductForm({ initialData, categories }: any) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     const method = initialData ? "PATCH" : "POST";
     const apiUrl = initialData
-      ? `${baseUrl}/api/product/${initialData.id}`
+      ? `${baseUrl}/api/products/${initialData.id}`
       : `${baseUrl}/api/products`;
     reset();
 
