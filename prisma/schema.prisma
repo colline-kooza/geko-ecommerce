@@ -32,5 +32,8 @@ model Category {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   description String
+  image       String
   product     Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
