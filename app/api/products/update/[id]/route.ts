@@ -2,26 +2,19 @@ import db from "@/utils/db";
 import { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
 
-interface CustomNextApiRequest extends NextApiRequest {
-  json: () => Promise<any>;
-}
-
-export async function PUT(req: CustomNextApiRequest, context: any) {
-  const { params } = context;
-  const id = params.id;
-//   console.log(id);
+export async function PUT(request:any, { params: { id } }:any) {
   try {
     const {
       name,
       images,
       description,
-      price,
+      // price,
       categoryId,
       isPublished,
       isFeatured,
       slug,
       quantity,
-    } = await req.json();
+    } = await request.json();
 
     const updatedProduct = await db.product.update({
       where: {
@@ -31,7 +24,7 @@ export async function PUT(req: CustomNextApiRequest, context: any) {
         name,
         images,
         description,
-        price,
+        // price,
         categoryId,
         isPublished,
         isFeatured,
