@@ -45,13 +45,13 @@ export async function PATCH(request: any, { params: { id } }: any) {
         images,
         description,
         shortDescription,
-        currentPrice: parseFloat(currentPrice),
-        initialPrice: parseFloat(initialPrice),
+        currentPrice: currentPrice,
+        initialPrice: initialPrice,
         categoryId,
         isPublished,
         isFeatured,
         slug,
-        quantity: parseInt(quantity),
+        quantity: quantity,
       },
     });
     console.log("Product deleted successfully", updatedProduct);
