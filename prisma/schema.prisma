@@ -18,7 +18,7 @@ model Product {
   shortDescription String?
   currentPrice     String
   intialPrice      Float?
-  categoryId       String
+  categoryId       String   @db.ObjectId
   isPublished      Boolean
   isFeatured       Boolean
   slug             String   @unique
