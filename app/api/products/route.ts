@@ -7,6 +7,7 @@ export async function POST(req: any) {
       name,
       images,
       description,
+      shortDescription,
       currentPrice,
       initialPrice,
       categoryId,
@@ -35,6 +36,7 @@ export async function POST(req: any) {
         name,
         images,
         description,
+        shortDescription,
         currentPrice: parseFloat(currentPrice),
         initialPrice: parseFloat(initialPrice),
         categoryId,
@@ -45,7 +47,7 @@ export async function POST(req: any) {
       },
     });
 
-    console.log("Product created successfully", newProduct);
+    // console.log("Product created successfully", newProduct);
     return NextResponse.json(newProduct, {
       status: 201,
     });
