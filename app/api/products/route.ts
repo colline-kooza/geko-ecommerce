@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
         name,
         images,
         description,
-        price,
+        // price,
         categoryId,
         isPublished,
         isFeatured,

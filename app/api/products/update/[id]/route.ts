@@ -2,6 +2,7 @@ import db from "@/utils/db";
 import { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
 
+
 export async function PUT(request:any, { params: { id } }:any) {
   try {
     const {
