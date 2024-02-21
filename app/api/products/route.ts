@@ -1,13 +1,15 @@
 import db from "@/utils/db";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
+export async function POST(req: any) {
   try {
     const {
       name,
       images,
       description,
-      price,
+      shortDescription,
+      currentPrice,
+      initialPrice,
       categoryId,
       isPublished,
       isFeatured,
@@ -34,16 +36,18 @@ export async function POST(req: NextRequest) {
         name,
         images,
         description,
-        // price,
+        shortDescription,
+        currentPrice: parseFloat(currentPrice),
+        initialPrice: parseFloat(initialPrice),
         categoryId,
         isPublished,
         isFeatured,
         slug,
-        quantity,
+        quantity: parseInt(quantity),
       },
     });
 
-    console.log("Product created successfully", newProduct);
+    // console.log("Product created successfully", newProduct);
     return NextResponse.json(newProduct, {
       status: 201,
     });
@@ -61,7 +65,7 @@ export async function GET() {
       // },
     });
 
-    console.log("Products got back successfully", products);
+    // console.log("Products got back successfully", products);
     return NextResponse.json(products, {
       status: 200,
     });
