@@ -1,13 +1,14 @@
 import db from "@/utils/db";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
+export async function POST(req: any) {
   try {
     const {
       name,
       images,
       description,
-      price,
+      currentPrice,
+      initialPrice,
       categoryId,
       isPublished,
       isFeatured,
@@ -34,12 +35,13 @@ export async function POST(req: NextRequest) {
         name,
         images,
         description,
-        // price,
+        currentPrice: parseFloat(currentPrice),
+        initialPrice: parseFloat(initialPrice),
         categoryId,
         isPublished,
         isFeatured,
         slug,
-        quantity,
+        quantity: parseInt(quantity),
       },
     });
 
