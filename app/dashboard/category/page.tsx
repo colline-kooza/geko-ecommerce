@@ -24,7 +24,7 @@ export default async function page() {
             {
                 categories?.map((cat:any)=>{
                     return(
-                <div className="relative group">
+                <div key={cat.id} className="relative group">
                 <div className="overflow-hidden ">
                     <img className="object-cover w-full h-full transition-all duration-300 group-hover:scale-125" src={cat.image} alt="" />
                 </div>
