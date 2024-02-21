@@ -26,6 +26,10 @@ const footerPages = [
         text: "Testimonials",
         href: "/testimonials",
       },
+      {
+        text: "Go-To-Dashboard",
+        href: "/dashboard",
+      },
     ],
   },
   {
