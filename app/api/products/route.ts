@@ -37,16 +37,16 @@ export async function POST(req: any) {
         images,
         description,
         shortDescription,
-        currentPrice: parseFloat(currentPrice),
-        initialPrice: parseFloat(initialPrice),
+        currentPrice: currentPrice, 
+        initialPrice: initialPrice,
         categoryId,
         isPublished,
         isFeatured,
         slug,
-        quantity: parseInt(quantity),
+        quantity: quantity,
       },
     });
-
+    
     // console.log("Product created successfully", newProduct);
     return NextResponse.json(newProduct, {
       status: 201,

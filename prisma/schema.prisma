@@ -16,13 +16,13 @@ model Product {
   images           String[]
   description      String
   shortDescription String?
-  currentPrice     Float?
-  initialPrice     Float?
+  currentPrice     String?
+  initialPrice     String?
   categoryId       String   @db.ObjectId
   isPublished      Boolean
   isFeatured       Boolean
   slug             String   @unique
-  quantity         Int
+  quantity         String
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
   Category         Category @relation(fields: [categoryId], references: [id])

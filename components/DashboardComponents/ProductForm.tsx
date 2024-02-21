@@ -63,7 +63,7 @@ export function ProductForm({ initialData, categories }: any) {
 
   return (
     <div className='flex flex-col gap-2'>
-      <FormHeader title='Product' />
+      <FormHeader title='Product' link="/dashboard/product"/>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='flex flex-col space-y-8 w-full lg:w-[80%] mt-4 border border-gray-900 p-5 rounded-lg'
