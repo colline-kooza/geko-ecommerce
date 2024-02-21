@@ -1,16 +1,14 @@
 "use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import adminApiRequest from "@/utils/ApiRequest";
+import { generateSlug } from "@/utils/generateSlug";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { ProductData } from "@/types";
-import { TextInputs } from "./TextInputs";
-import { CustomTextArea } from "./TextArea";
 import FormHeader from "./FormHeader";
 import ImagesInput from "./ImagesInput";
-import ToggleInput from "./ToggleInput";
-import { generateSlug } from "@/utils/generateSlug";
 import SelectInput from "./SelectInput";
+import { CustomTextArea } from "./TextArea";
+import { TextInputs } from "./TextInputs";
+import ToggleInput from "./ToggleInput";
 
 // interface ProductFormProps {
 //   initialData?: ProductData | null;
