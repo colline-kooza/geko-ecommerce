@@ -2,11 +2,8 @@ import db from "@/utils/db";
 import { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
 
-export async function GET(req: NextApiRequest, context: any) {
-  const { params } = context;
-  const id = params.id;
-  // console.log(id);
-
+export async function GET(request:any, { params: { id } }:any) {
+ 
   try {
     const products = await db.product.findUnique({
       where: {
@@ -24,10 +21,7 @@ export async function GET(req: NextApiRequest, context: any) {
   }
 }
 
-export async function DELETE(req: NextApiRequest, context: any) {
-  const { params } = context;
-  const id = params.id;
-  // console.log(id);
+export async function DELETE(request:any, { params: { id } }:any) {
 
   try {
     const product = await db.product.delete({

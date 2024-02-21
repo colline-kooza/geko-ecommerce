@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  images: {
-    domains: ['i.etsystatic.com'], 
-  },
-}
-  
+    images: {
+      domains: ['i.etsystatic.com'], 
+    },
+  }
