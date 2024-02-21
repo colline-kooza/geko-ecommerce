@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Link from "next/link";
 import { Heart, Search, ShoppingCart } from "lucide-react";
@@ -15,11 +15,9 @@ const links = [
 const companyName = "Geko";
 
 export default function NavBar() {
-  const pathname = usePathname()
-  if(pathname === "/dashboard" || pathname === "/dashboard/category" || pathname === "/dashboard/category/create" || pathname === "/dashboard/product" || pathname === "/dashboard/category/update"){
-    return null
-  }
-  if (pathname.startsWith("/dashboard/category/update/")) {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/dashboard")) {
     return null;
   }
   return (

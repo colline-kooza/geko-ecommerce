@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Link from "next/link";
 import Button from "./Button";
@@ -79,16 +79,8 @@ const footerPages = [
 ];
 
 export default function Footer() {
-  const pathname = usePathname()
-  if (
-    pathname === "/dashboard" ||
-    pathname === "/dashboard/category" ||
-    pathname === "/dashboard/category/create" ||
-    pathname === "/dashboard/product"
-  ) {
-    return null;
-  }
-  if (pathname.startsWith("/dashboard/category/update/")) {
+  const pathname = usePathname();
+  if (pathname.startsWith("/dashboard")) {
     return null;
   }
   return (
