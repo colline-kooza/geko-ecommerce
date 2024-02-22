@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
-import { CartProvider } from "@/components/CartContext";
+// import { CartProvider } from "@/components/CartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,14 +24,14 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-      <CartProvider>
+      {/* <CartProvider> */}
 
       <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <NavBar />
         {children}
         <Footer/>
         <Toaster position='top-center' />
-        </CartProvider>
+        {/* </CartProvider> */}
 
       </body>
     </html>
