@@ -4,14 +4,14 @@ import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 
 interface Product {
-  id: string;
-  name: string;
-  currentPrice: string;
-  images: string[];
-  shortDescription: string;
-  description: string;
-  quantity: string;
-}
+    id: string;
+    name: string;
+    currentPrice: string;
+    images?: string[]; 
+    shortDescription: string;
+    description: string;
+    quantity: string;
+  }
 
 export default function Page() {
   const { cart, removeFromCart } = useCart();
