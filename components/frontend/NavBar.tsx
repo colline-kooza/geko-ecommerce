@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { Heart, Search, ShoppingCart } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useCart } from "../CartContext";
 
 const links = [
   { slug: "shop-deals", title: "shop deals" },
@@ -15,7 +16,8 @@ const links = [
 const companyName = "Geko";
 
 export default function NavBar() {
-  
+  const { cart } = useCart();
+  // console.log(cart)
   const pathname = usePathname();
 
   if (pathname.startsWith("/dashboard")) {
@@ -53,8 +55,8 @@ export default function NavBar() {
           </Link>
           <Link href='/cart' className='relative flex items-center'>
             <ShoppingCart />
-            <div className='rounded-full bg-blue-500 text-white p-1 text-xs absolute z-[230] -right-4 -top-2 font-bold'>
-              20
+            <div className='rounded-full bg-blue-500 text-white py-1 px-2 text-xs absolute z-[230] -right-4 -top-2 font-bold'>
+            {cart.length}
             </div>
           </Link>
         </div>

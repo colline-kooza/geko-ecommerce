@@ -4,6 +4,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { GrDeliver } from "react-icons/gr";
 import { MdStars } from "react-icons/md";
+import { useCart } from "../CartContext";
 
 
 interface Product {
@@ -17,23 +18,10 @@ interface Product {
   shortDescription:string
 }
 export default function DetailsComponent({ product }: { product: Product }) {
-  // console.log(product)
+  const { addToCart } = useCart();
   const today = new Date();
   const month = today.getMonth() + 1; 
   const monthName = today.toLocaleString('en-US', { month: 'long' })
-
-  const addToCart = () => {
-    const existingCartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
-    const productExists = existingCartItems.some((item: Product) => item.id === product.id);
-
-    if (productExists) {
-      toast.error("Item already in the cart");
-    } else {
-      existingCartItems.push(product);
-      localStorage.setItem("cartItems", JSON.stringify(existingCartItems));
-      toast.success("Product added to cart");
-    }
-  };
 
   return (
     <div className="lg:px-0  px-3">
@@ -109,7 +97,7 @@ export default function DetailsComponent({ product }: { product: Product }) {
       <div className="mt-4 flex ">
       <button 
           className="bg-[#222222] lg:px-48 md:px-40 px-30 py-4 shadow-lg hover:shadow-2xl hover:transition-colors hover:bg-slate-800 font-medium text-white text-sm rounded-3xl hover:animate-pulse"
-          onClick={addToCart}
+          onClick={() => addToCart(product)}
         >
        Add To Cart
         </button>

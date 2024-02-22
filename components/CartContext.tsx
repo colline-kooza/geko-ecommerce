@@ -1,62 +1,74 @@
-// "use client";
-// import { createContext, useContext, useEffect, useState } from "react";
+"use client";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 // import toast from "react-hot-toast";
 
-// export const CartContext = createContext();
+interface Product {
+  images: any;
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  quantity: string;
+  currentPrice: string;
+  initialPrice: string;
+  shortDescription: string;
+}
 
-// export function CartProvider({ children }:any) {
-//   const [cart, setCart] = useState([]);
+interface CartContextType {
+  cart: Product[];
+  addToCart: (product: Product) => void;
+  removeFromCart: (productId: string) => void;
+}
 
-//   useEffect(() => {
-//     // Load cart from local storage on component mount
-//     const storedCart = JSON.parse(localStorage.getItem("cartItem"));
-//     if (storedCart) {
-//       setCart(storedCart);
-//     }
-//   }, []);
+export const CartContext = createContext<CartContextType>({
+  cart: [],
+  addToCart: () => {},
+  removeFromCart: () => {},
+});
 
-//   const addToCart = (product) => {
-//     if (cart.some((item) => item.id === product.id)) {
-//       toast.error("This product is already in the cart");
-//     } else {
-//       const updatedCart = [...cart, product];
-//       setCart(updatedCart);
-//       localStorage.setItem("cartItem", JSON.stringify(updatedCart));
-//       toast("This product has been added to the cart", {
-//         position: toast.POSITION.TOP_RIGHT,
-//       });
-//     }
-//   };
+export function CartProvider({ children }: { children: React.ReactNode }) {
+  const [cart, setCart] = useState<Product[]>([]);
 
-//   const removeFromCart = (productId) => {
-//     const updatedCart = cart.filter((item) => item.id !== productId);
-//     setCart(updatedCart);
-//     localStorage.setItem("cartItem", JSON.stringify(updatedCart));
-//     toast.success("This product has been removed from the cart");
-//   };
+  useEffect(() => {
+    const storedCartString = localStorage.getItem("cartItem");
+    if (storedCartString) {
+      const storedCart: Product[] = JSON.parse(storedCartString);
+      setCart(storedCart);
+    }
+  }, []);
 
-//   return (
-//     <CartContext.Provider
-//       value={{
-//         addToCart,
-//         cart,
-//         removeFromCart,
-//       }}
-//     >
-//       {children}
-//     </CartContext.Provider>
-//   );
-// }
+  const addToCart = (product: Product) => {
+    if (cart.some((item) => item.id === product.id)) {
+      toast.error("This product is already in the cart");
+    } else {
+      const updatedCart = [...cart, product];
+      setCart(updatedCart);
+      localStorage.setItem("cartItem", JSON.stringify(updatedCart));
+      toast.success("This product has been added to the cart");
+    }
+  };
 
-// export function useCart() {
-//   const context = useContext(CartContext);
-//   return context;
-// }
+  const removeFromCart = (productId: string) => {
+    const updatedCart = cart.filter((item) => item.id !== productId);
+    setCart(updatedCart);
+    localStorage.setItem("cartItem", JSON.stringify(updatedCart));
+    toast.success("This product has been removed from the cart");
+  };
 
-import React from 'react'
+  const contextValue: CartContextType = {
+    cart,
+    addToCart,
+    removeFromCart,
+  };
 
-export default function CartContext() {
   return (
-    <div>CartContext</div>
-  )
+    <CartContext.Provider value={contextValue}>
+      {children}
+    </CartContext.Provider>
+  );
+}
+
+export function useCart() {
+  return useContext(CartContext);
 }
