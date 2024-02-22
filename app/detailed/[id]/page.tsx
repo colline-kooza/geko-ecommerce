@@ -42,9 +42,9 @@
             <DetailsComponent product={product}/>
           </div>
         </div>
-        <div className=''>
+        <div className='px-4'>
           <h2 className='font-bold text-lg border-b border-gray-800 w-[100%] lg:w-[20%]'>RELATED PRODUCTS</h2>
-          <div className='mt-6'>
+          <div className='lg:mt-3'>
             <RecentlyViewed title="" products={relatedProducts}/>
           </div>
         </div>

@@ -75,7 +75,7 @@ export default function DetailsComponent({ product }: { product: Product }) {
               </h2>
               <div className="w-[100%] h-[1px] bg-gray-200 "></div>
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="lg:flex flex-col hidden gap-2 ">
               <h2 className="text-sm tracking-[.4px] font-[500]">
                 Choose your location
               </h2>
@@ -98,7 +98,7 @@ export default function DetailsComponent({ product }: { product: Product }) {
       </div>
       <div className="mt-4 flex ">
       <button 
-          className="bg-[#222222] lg:px-48 md:px-40 px-30 py-4 shadow-lg hover:shadow-2xl hover:transition-colors hover:bg-slate-800 font-medium text-white text-sm rounded-3xl hover:animate-pulse"
+          className="bg-[#222222] lg:px-48 md:px-40 px-[7rem] py-4 shadow-lg hover:shadow-2xl hover:transition-colors hover:bg-slate-800 font-medium text-white text-sm rounded-3xl hover:animate-pulse"
           onClick={() => addToCart(product)}
         >
        Add To Cart

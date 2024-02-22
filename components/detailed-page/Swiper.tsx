@@ -13,8 +13,8 @@ export default function ProductSlider({images}:any) {
   const thumbsSwiper = useRef<Swiper | null>(null);
 
   return (
-   <div>
-     <div className="h-[100vh] relative">
+   <div className="">
+     <div className="min-h-[70vh] lg:min-h-screen relative">
         <div className="z-40 bg-white flex items-center justify-center absolute top-3 right-4 w-[40px] h-[40px]  rounded-3xl shadows cursor-pointer ">
           <Heart className="hover:text-red-600 hover:font-bold " />
         </div>
