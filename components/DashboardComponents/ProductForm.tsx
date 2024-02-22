@@ -62,11 +62,12 @@ export function ProductForm({ initialData, categories }: any) {
   }
 
   return (
-    <div className='flex flex-col gap-2'>
+    <div className='flex flex-col gap-2 w-full  '>
       <FormHeader title='Product' link="/dashboard/product"/>
-      <form
+    <div className="flex flex-col items-center justify-center">
+    <form
         onSubmit={handleSubmit(onSubmit)}
-        className='flex flex-col space-y-8 w-full lg:w-[80%] mt-4 border border-gray-900 p-5 rounded-lg'
+        className='flex flex-col space-y-8 w-full lg:w-[80%] mt-4 border border-gray-900 p-5 rounded-lg '
       >
         <ImagesInput
           label='Product Images'
@@ -74,8 +75,7 @@ export function ProductForm({ initialData, categories }: any) {
           endpoint='productImages'
           setImages={setImages}
         />
-        <div className='flex gap-2'>
-          <TextInputs
+        <TextInputs
             placeholder='Enter Product Name'
             label='Product title'
             name='name'
@@ -83,7 +83,7 @@ export function ProductForm({ initialData, categories }: any) {
             errors={errors}
             register={register}
           />
-          <SelectInput
+        <SelectInput
             label='Select Category'
             name='categoryId'
             register={register}
@@ -91,8 +91,6 @@ export function ProductForm({ initialData, categories }: any) {
             className='max-w-xl'
             options={categories}
           />
-        </div>
-
         <div className='flex gap-2'>
           <TextInputs
             placeholder='$1000'
@@ -195,6 +193,7 @@ export function ProductForm({ initialData, categories }: any) {
           )}
         </div>
       </form>
+    </div>
     </div>
   );
 }

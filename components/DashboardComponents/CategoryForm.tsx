@@ -54,7 +54,8 @@ adminApiRequest({
   return (
     <div className="flex flex-col gap-2">
       <FormHeader title="Category" link="/dashboard/category"/>
-      <form
+     <div className="flex flex-col items-center justify-center">
+     <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col space-y-8 w-full lg:w-[80%] mt-4 border border-gray-900 p-5 rounded-lg"
       >
@@ -113,6 +114,7 @@ adminApiRequest({
           )}
         </div>
       </form>
+     </div>
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
    <div className='lg:w-[20%] lg:block hidden'>
    <Sidebar />
    </div>
-      <div className='lg:w-[80%] p-4 w-full'>
+      <div className='lg:w-[90%] p-4 w-full'>
         {children}
       </div>
     </div>

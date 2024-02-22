@@ -15,6 +15,7 @@ const links = [
 const companyName = "Geko";
 
 export default function NavBar() {
+  
   const pathname = usePathname();
 
   if (pathname.startsWith("/dashboard")) {

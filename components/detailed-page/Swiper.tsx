@@ -9,81 +9,49 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { Heart } from "lucide-react";
 type Swiper = any;
 
-export default function ProductSlider() {
+export default function ProductSlider({images}:any) {
   const thumbsSwiper = useRef<Swiper | null>(null);
 
   return (
    <div>
      <div className="h-[100vh] relative">
-      <div className="z-40 bg-white flex items-center justify-center absolute top-3 right-4 w-[40px] h-[40px]  rounded-3xl shadows cursor-pointer ">
-      <Heart className="hover:text-red-600 hover:font-bold "/>
+        <div className="z-40 bg-white flex items-center justify-center absolute top-3 right-4 w-[40px] h-[40px]  rounded-3xl shadows cursor-pointer ">
+          <Heart className="hover:text-red-600 hover:font-bold " />
+        </div>
+        <Swiper
+          loop={true}
+          spaceBetween={10}
+          navigation={true}
+          thumbs={{ swiper: thumbsSwiper.current }}
+          modules={[FreeMode, Navigation, Thumbs]}
+          className="mySwiper2"
+        >
+          {images.map((image: string, index: number) => (
+            <SwiperSlide key={index}>
+              <img  src={image} alt={`Image ${index}`} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <Swiper
+          onSwiper={(swiper) => (thumbsSwiper.current = swiper)}
+          loop={true}
+          spaceBetween={10}
+          slidesPerView={4}
+          freeMode={true}
+          watchSlidesProgress={true}
+          modules={[FreeMode, Navigation, Thumbs]}
+          className="mySwiper"
+        >
+          <div className="mt-5">
+            {images.map((image: string, index: number) => (
+              <SwiperSlide key={index}>
+                <img src={image} alt={`Image ${index}`} />
+              </SwiperSlide>
+            ))}
+          </div>
+        </Swiper>
       </div>
-      <Swiper
-        loop={true}
-        spaceBetween={10}
-        navigation={true}
-        thumbs={{ swiper: thumbsSwiper.current }}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2"
-      >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="Nature 1" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-      </Swiper>
-      <Swiper
-        onSwiper={(swiper) => (thumbsSwiper.current = swiper)}
-        loop={true}
-        spaceBetween={10}
-        slidesPerView={4}
-        freeMode={true}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
-      >
-       <div className="mt-5">
-       <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="Nature 1" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-       </div>
-      </Swiper>
-    </div>
-    <div className="w-full  min-h-[50vh] lg:flex md:flex hidden px-3">
+    <div className="w-full min-h-[50vh] lg:flex md:flex hidden px-3">
       <div className="lg:w-[60%] w-full flex flex-col gap-4 items-start border-b-[2px] border-gray-300">
        <div className="flex items-center gap-3">
         <h3 className="text-sm font-semibold">Other reviews from this Product</h3> | 

@@ -25,7 +25,7 @@ model Product {
   quantity         String
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
-  Category         Category @relation(fields: [categoryId], references: [id])
+  Category         Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 }
 
 model Category {

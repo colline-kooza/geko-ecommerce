@@ -1,29 +1,32 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-const featuredCategories = [
-  { name: "Anniversary Gifts", imageSrc: "/categories/category2.jpg" },
-  { name: "Birthday Gifts", imageSrc: "/categories/category3.jpg" },
-  { name: "Wedding Gifts", imageSrc: "/categories/category1.jpg" },
-  { name: "Wedding Gifts", imageSrc: "/categories/category2.jpg" },
-  { name: "Holiday Gifts", imageSrc: "/categories/category1.jpg" },
-  // Add more category objects as needed
-];
+interface Product {
+  id: string;
+  name: string;
+  images: string[]; 
+}
 
-export default function PopularCategories() {
+interface PopularCategoriesProps {
+  products: Product[];
+}
+
+const PopularCategories: React.FC<PopularCategoriesProps> = ({ products }) => {
+  // console.log(products)
   return (
     <div className='w-full bg-white py-8'>
       <div className='flex flex-col gap-8 justify-center max-w-7xl mx-auto py-10 px-8 text-zinc-950'>
         <div className=''>
           <h3 className='font-bold text-2xl'>
-            Shop our popular gift categories
+            Shop our popular Products
           </h3>
         </div>
 
         {/* Featured Categories */}
         <div className='grid grid-cols-2 col-span-2 gap-5 lg:grid-cols-5'>
-          {featuredCategories.map((category, index) => (
-            <div
+          {products?.splice(0 ,5).map((prdt, index) => (
+            <Link href={`/d/${prdt.id}`}
               key={index}
               className='flex flex-col border border-zinc-950 rounded-xl'
             >
@@ -31,18 +34,20 @@ export default function PopularCategories() {
                 <Image
                   width={340}
                   height={270}
-                  src={category.imageSrc}
+                  src={prdt. images[0]}
                   alt={`gecko-category-${index}`}
                   className='object-cover rounded-t-xl'
                 />
               </div>
               <div className='p-6 text-center capitalize rounded-b-xl bg-white'>
-                <span className='font-bold'>{category.name}</span>
+                <span className='font-bold'>{prdt.name}</span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
     </div>
   );
 }
+
+export default PopularCategories;

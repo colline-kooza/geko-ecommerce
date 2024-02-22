@@ -8,11 +8,16 @@ import { MdStars } from "react-icons/md";
 
 interface Product {
   id: string;
-  title: string;
+  name: string;
   price: number;
   description: string;
+  quantity:string
+  currentPrice:string
+  initialPrice:string
+  shortDescription:string
 }
 export default function DetailsComponent({ product }: { product: Product }) {
+  // console.log(product)
   const today = new Date();
   const month = today.getMonth() + 1; 
   const monthName = today.toLocaleString('en-US', { month: 'long' })
@@ -33,15 +38,15 @@ export default function DetailsComponent({ product }: { product: Product }) {
   return (
     <div className="lg:px-0  px-3">
       <div className="flex flex-col gap-1">
-        <h2 className="text-[#9a0027] text-lg font-medium">Only 3 left and in 1 cart</h2>
+        <h2 className="text-[#9a0027] text-md font-medium">Only {product.quantity} left and in the stock</h2>
        <div className="flex items-center gap-2">
-       <h1 className="text-3xl font-bold text-[#0f743b]">USD 33.44</h1>
-       <p className="line-through text-gray-500 text-sm">USD 179.00</p>
+       <h1 className="text-3xl font-bold text-[#0f743b]">USD {product.currentPrice}</h1>
+       <p className="line-through text-gray-500 text-sm">USD {product.initialPrice}</p>
 
        </div>
-       <h2 className="font-xs mb-5 font-semibold text-[#0f743b]">10% off sale for a limited time</h2>
-       <h2 className="font-semibold">{product.title}</h2>
-        <p className="text-xs text-gray-600">Local taxes included (where applicable)</p>
+       <h2 className="font-xs mb-5 font-semibold text-[#0f743b]">{product.name} have 10% off sale for a limited time</h2>
+       <h2 className="font-semibold">{product.name}</h2>
+        <p className="text-xs text-gray-600">{product.shortDescription}</p>
         <div className="flex items-center gap-2">
   <h1 className="font-bold text-sm text-gray-700 tracking-[0.3px]">Ratings :</h1>
   <div className="flex items-center">
@@ -101,9 +106,9 @@ export default function DetailsComponent({ product }: { product: Product }) {
             </div>
          
       </div>
-      <div className="mt-4 flex items-center justify-center">
+      <div className="mt-4 flex ">
       <button 
-          className="bg-[#222222] px-20 lg:px-48 md:px-40 px-28 py-4 shadow-lg hover:shadow-2xl hover:transition-colors hover:bg-slate-800 font-medium text-white text-sm rounded-3xl hover:animate-pulse"
+          className="bg-[#222222] lg:px-48 md:px-40 px-30 py-4 shadow-lg hover:shadow-2xl hover:transition-colors hover:bg-slate-800 font-medium text-white text-sm rounded-3xl hover:animate-pulse"
           onClick={addToCart}
         >
        Add To Cart
@@ -113,7 +118,7 @@ export default function DetailsComponent({ product }: { product: Product }) {
       <div className="lg:p-8 p-2 flex flex-col gap-6">
         <div className="flex flex-col gap-2 ">
         <h2 className="font-bold text-lg text-gray-700">Item Details</h2>
-        <p className="text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur cum adipisci enim nemo delectus nisi!</p>
+        <p className="text-sm text-gray-500">{product.description}</p>
         </div>
         <div className="flex flex-col gap-2">
               <h2 className="font-bold text-lg text-gray-700  ">
