@@ -1,23 +1,12 @@
 "use client";
+import { useClerk } from "@clerk/nextjs";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { CiMenuBurger } from "react-icons/ci";
 
 export default function SideBar() {
-  //   useEffect(() => {
-  //     const closeSidebar = (e) => {
-
-  //       if (!document.getElementById('docs-sidebar').contains(e.target)) {
-  //         setIsSidebarOpen(false);
-  //       }
-  //     };
-
-  //     document.body.addEventListener('click', closeSidebar);
-
-  //     return () => {
-  //       document.body.removeEventListener('click', closeSidebar);
-  //     };
-  //   }, []);
-
+  const { signOut } = useClerk();
+  const router = useRouter();
   return (
     <div className=''>
       <button
@@ -31,17 +20,16 @@ export default function SideBar() {
       </button>
 
       <div
-        id='docs-sidebar'
         className={`hs-overlay ${"-translate-x-full"} transition-all duration-300 transform fixed top-0 start-0 bottom-0 z-[60] w-64 bg-white border-e border-gray-200 pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 dark:bg-gray-800 dark:border-gray-700`}
       >
         <div className='px-6'>
-          <a
+          <Link
             className='flex-none text-xl font-semibold dark:text-white'
             href='/'
             aria-label='Brand'
           >
             GEKO
-          </a>
+          </Link>
         </div>
         <nav
           className='hs-accordion-group p-6 w-full flex flex-col flex-wrap'
@@ -125,6 +113,14 @@ export default function SideBar() {
                 Category
               </Link>
             </li>
+            <div className='w-full'>
+              <button
+                onClick={() => signOut(() => router.push("/"))}
+                className='px-4 py-1 bg-blue-600 text-white w-full rounded-md'
+              >
+                Sign out
+              </button>
+            </div>
           </ul>
         </nav>
       </div>
