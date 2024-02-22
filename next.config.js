@@ -1,14 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
     images: {
-      remotePatterns: [
-        {
-          protocol: "https",
-          hostname: "i.etsystatic.com",
-        },
-      ],
+      domains: ['i.etsystatic.com',"utfs.io"], 
     },
-  };
-  
-  module.exports = nextConfig;
-  
+  }

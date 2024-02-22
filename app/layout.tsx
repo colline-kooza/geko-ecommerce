@@ -4,6 +4,11 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/frontend/NavBar";
 import Footer from "@/components/frontend/Footer";
+import { Toaster } from "react-hot-toast";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+import { ourFileRouter } from "./api/uploadthing/core";
+import { CartProvider } from "@/components/CartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +26,15 @@ export default function RootLayout({
     <ClerkProvider>
     <html lang='en'>
       <body className={inter.className}>
+      <CartProvider>
+
+      <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <NavBar />
         {children}
         <Footer/>
+        <Toaster position='top-center' />
+        </CartProvider>
+
       </body>
     </html>
     </ClerkProvider>
