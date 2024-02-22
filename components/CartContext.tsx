@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 // import toast from "react-hot-toast";
 
 interface Product {
-  images: any;
   id: string;
   name: string;
   price: number;
@@ -13,6 +12,7 @@ interface Product {
   currentPrice: string;
   initialPrice: string;
   shortDescription: string;
+  images?: string[];
 }
 
 interface CartContextType {

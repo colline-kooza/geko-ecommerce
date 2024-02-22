@@ -12,11 +12,13 @@ interface Product {
   name: string;
   price: number;
   description: string;
-  quantity:string
-  currentPrice:string
-  initialPrice:string
-  shortDescription:string
+  quantity: string;
+  currentPrice: string;
+  initialPrice: string;
+  shortDescription: string;
+  images?: string[]; 
 }
+
 export default function DetailsComponent({ product }: { product: Product }) {
   const { addToCart } = useCart();
   const today = new Date();

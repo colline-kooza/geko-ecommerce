@@ -6,11 +6,13 @@ import React, { useState, useEffect } from 'react'
 interface Product {
     id: string;
     name: string;
-    currentPrice: string;
-    images?: string[]; 
-    shortDescription: string;
+    price: number;
     description: string;
     quantity: string;
+    currentPrice: string;
+    initialPrice: string;
+    shortDescription: string;
+    images?: string[]; 
   }
 
 export default function Page() {
@@ -36,7 +38,9 @@ export default function Page() {
             return (
               <div key={i} className="md:flex items-stretch py-8 md:py-10 lg:py-8 border-t border-gray-50">
                 <div className="md:w-4/12 2xl:w-1/4 w-full">
-                  <img src={prdt.images[0]} className="h-full object-center object-cover md:block hidden" />
+                {prdt.images && (
+               <img src={prdt.images[0]} className="h-full object-center object-cover md:block hidden" />
+                 )}
                   <img src="https://i.ibb.co/TTnzMTf/Rectangle-21.png" alt="Black Leather Purse" className="md:hidden w-full h-full object-center object-cover" />
                 </div>
                 <div className="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
