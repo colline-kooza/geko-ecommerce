@@ -1,4 +1,4 @@
-import { ClerkProvider } from '@clerk/nextjs'
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -24,19 +24,17 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang='en'>
-      <body className={inter.className}>
-      <CartProvider>
-
-      <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-        <NavBar />
-        {children}
-        <Footer/>
-        <Toaster position='top-center' />
-        </CartProvider>
-
-      </body>
-    </html>
+      <html lang='en'>
+        <body className={inter.className}>
+          <CartProvider>
+            <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+            <NavBar />
+            {children}
+            <Footer />
+            <Toaster position='top-center' />
+          </CartProvider>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }

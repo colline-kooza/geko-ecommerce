@@ -26,7 +26,7 @@ const PopularCategories: React.FC<PopularCategoriesProps> = ({ products }) => {
         {/* Featured Categories */}
         <div className='grid grid-cols-2 col-span-2 gap-5 lg:grid-cols-5'>
           {products?.splice(0 ,5).map((prdt, index) => (
-            <Link href={`/d/${prdt.id}`}
+            <Link href={`/detailed/${prdt.id}`}
               key={index}
               className='flex flex-col border border-zinc-950 rounded-xl'
             >

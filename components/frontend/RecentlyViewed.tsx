@@ -23,7 +23,7 @@ export default function RecentlyViewed({ products, title }: RecentlyViewedProps)
           {products?.slice(0, 5).map((item) => (
             <Link
               key={item.id}
-              href={`/d/${item.id}`}
+              href={`/detailed/${item.id}`}
               className='flex items-center justify-center relative'
             >
               <Image
