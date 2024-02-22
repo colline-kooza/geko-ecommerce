@@ -35,10 +35,10 @@
       <div className='lg:py-3 lg:px-8 md:px-3 px-1'>
         <BreadCrumb currentPage={currentPage} />
         <div className='w-full min-h-screen py-5 lg:flex lg:flex-row md:flex-row flex-col lg:gap-4 gap-5'>
-          <div className='lg:w-[50%] w-full min-h-[60vh]'>
+          <div className='lg:w-[50%] min-h-[50vh] w-full lg:min-h-[60vh]'>
             <Swiper  images={productImages}/>
           </div>
-          <div className='lg:w-[50%] w-full min-h-screen'>
+          <div className='lg:w-[50%] w-full min-h-screen lg:mt-0 mt-4'>
             <DetailsComponent product={product}/>
           </div>
         </div>
