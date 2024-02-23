@@ -19,7 +19,7 @@ const companyName = "Geko";
 export default function NavBar() {
   const { cart } = useCart();
   const { user, isLoaded, isSignedIn } = useUser();
-  console.log(user )
+  // console.log(user )
   const pathname = usePathname();
 
   if (pathname.startsWith("/dashboard")) {
@@ -59,7 +59,7 @@ export default function NavBar() {
   <span className="absolute bottom-0 end-0 block size-2.5 rounded-full ring-2 ring-white bg-red-400"></span>
 </div>
           :   <Link href='/register' className='text-sm font-bold'>
-          Logout
+          LogIn
           </Link> 
          }
          
