@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Heart, Search, ShoppingCart } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useCart } from "../CartContext";
+import { useUser } from "@clerk/nextjs";
 
 const links = [
   { slug: "shop-deals", title: "shop deals" },
@@ -17,7 +18,8 @@ const companyName = "Geko";
 
 export default function NavBar() {
   const { cart } = useCart();
-  // console.log(cart)
+  const { user, isLoaded, isSignedIn } = useUser();
+  console.log(user )
   const pathname = usePathname();
 
   if (pathname.startsWith("/dashboard")) {
@@ -47,9 +49,20 @@ export default function NavBar() {
 
         {/* signIn, favorites and the cart */}
         <div className='hidden lg:flex items-center gap-5'>
-          <Link href='/register' className='text-sm font-bold'>
-            sign in
-          </Link>
+      
+         {
+          user ?
+  <div className="relative inline-block">
+  <img className="inline-block size-[38px] rounded-full" src={user.imageUrl
+} alt="Image Description"/>
+
+  <span className="absolute bottom-0 end-0 block size-2.5 rounded-full ring-2 ring-white bg-red-400"></span>
+</div>
+          :   <Link href='/register' className='text-sm font-bold'>
+          Logout
+          </Link> 
+         }
+         
           <Link href='/favorite'>
             <Heart className='mr-3' />
           </Link>
